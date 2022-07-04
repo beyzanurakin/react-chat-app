@@ -24,7 +24,6 @@ function Chat({ socket, userName, room }) {
   useEffect(() => {
     socket.on('receive_message', (data) => {
       setMessageList((list) => [...list, data])
-      console.log(messageList)
     })
   }, [socket])
 
@@ -39,7 +38,7 @@ function Chat({ socket, userName, room }) {
             return (
               <div
                 className='message'
-                id={userName === messageContent.author ? 'you' : 'other'}
+                id={userName === messageContent.author ? 'other' : 'you'}
               >
                 <div>
                   <div className='message-content'>
